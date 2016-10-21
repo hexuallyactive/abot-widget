@@ -1163,9 +1163,11 @@
 
 @-webkit-keyframes moveFromBottom {
     from { -webkit-transform: translateY(100%); }
+    to { -webkit-transform: translateY(0%); }
 }
 @keyframes moveFromBottom {
     from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+    to { -webkit-transform: translateY(0%); transform: translateY(0%); }
 }
 
 #abot-container .abot-active{
