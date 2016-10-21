@@ -3,7 +3,7 @@ require("./widget.css");
 
 var elements = {};
 
-window.AbotChat = {
+window.AdiBotChat = {
 	status: {
 		current: undefined,
 		last: undefined,
@@ -25,7 +25,7 @@ window.AbotChat = {
 		elements.divChatbox = document.getElementById('abot-chatbox');
 		elements.txMessage = document.getElementById('txMessage');
 
-		document.querySelector('.abot-sheet-header-title').innerHTML = "Abot";
+		document.querySelector('.abot-sheet-header-title').innerHTML = "AdiBotler";
 
 		// Set a session key to uniquely identify this user across messages,
 		// enabling Abot to store memories. Perhaps this should be moved to
@@ -36,6 +36,7 @@ window.AbotChat = {
 		this.initEventHandler();
 	},
 	open: function () {
+  	document.getElementById('txMessage').focus();
 		utils.removeClass(elements.divLauncher, 'abot-launcher-active');
 		utils.addClass(elements.divLauncher, 'abot-launcher-inactive');
 		elements.divChatbox.style.display = 'block';
@@ -119,18 +120,18 @@ window.AbotChat = {
 		chatDiv.addEventListener("animationend", removeClass, false);
 
 		div_message.appendChild(chatDiv);
-		div_message.scrollTop = div_message.scrollHeight;
+		var msgContainer = document.querySelector(".abot-sheet-content");
 		this.status.last = this.status.current;
 	},
 	initEventHandler: function () {
 		// element event handlers
 		document.getElementById('abot-launcher-button').onclick = function (e) {
-			AbotChat.open();
+			AdiBotChat.open();
 		};
 
 		if (document.getElementById('btnClose') != undefined) {
 			document.getElementById('btnClose').onclick = function (e) {
-				AbotChat.close();
+				AdiBotChat.close();
 			};
 		}
 
@@ -147,7 +148,7 @@ window.AbotChat = {
 
 				var message = elements.txMessage.value.toString().trim();
 				if (message !== "") {
-					AbotChat.sendMessage(message);
+					AdiBotChat.sendMessage(message);
 				}
 
 				elements.txMessage.value = "";
@@ -167,15 +168,16 @@ window.AbotChat = {
 			url: self.config.server,
 			type: 'POST',
 			data: {
-				CMD: msg,
-				FlexID: self.status.sessionKey,
-				FlexIDType: 3
+				message: msg,
+				session_id: self.status.sessionKey
 			},
 			json: true,
 			success: function(data) {
-				self.addMessage(data, new Date(), 'abot', type);
-				var msgContainer = document.querySelector(".abot-sheet-content");
-				utils.scrollTo(msgContainer, msgContainer.scrollHeight, 400);
+  			if(data.trim().length > 0) {
+  				self.addMessage(data, new Date(), 'abot', type);
+  				var msgContainer = document.querySelector(".abot-sheet-content");
+  				utils.scrollTo(msgContainer, msgContainer.scrollHeight, 400);
+				}
 			}
 		});
 	}
