@@ -601,7 +601,7 @@
 }
 
 #abot-container .abot-default-abot-avatar {
-    background-color: #0071b2;
+    background-color: #0286cd;
     font-size: 13px;
     font-weight: bold;
     text-align: center;
@@ -648,6 +648,7 @@
 #abot-container .abot-comment-by-abot {
     float: left;
     padding-left: 38px;
+    /* debug border: 1px solid red; */
 }
 
 #abot-container .abot-comment-avatar {
@@ -667,7 +668,7 @@
     border-width: 1px;
     border-style: solid;
     position: relative;
-    max-width: 100%;
+    overflow: hidden;
 }
 
 #abot-container .abot-comment-body-container .abot-comment-body {
@@ -728,7 +729,7 @@
 }
 
 #abot-container .abot-comment-body-container ul > li {
-    list-style-type: disc;
+    list-style-type: none;
 }
 
 #abot-container .abot-comment-body-container ol > li {
@@ -736,7 +737,7 @@
 }
 
 #abot-container .abot-comment-body-container li {
-    display: list-item;
+    display: inline-block;
     line-height: 20px;
     margin-bottom: 10px;
     font-weight: 400;
@@ -772,7 +773,7 @@
 }
 
 #abot-container .abot-comment-body-container a:link, #abot-container .abot-comment-body-container a:visited {
-    color: #0071b2;
+    color: #0286cd;
 }
 
 #abot-container .abot-comment-body-container a:hover, #abot-container .abot-comment-body-container a:active {
@@ -860,7 +861,7 @@
 
 #abot-container .abot-comment-by-user .abot-comment-body-container {
     display: inline-block;
-    background-color: #1AABED;
+    background-color: rgb(44,150,207);
     color: white;
 }
 
@@ -879,7 +880,7 @@
 #abot-container .abot-comment-by-user .abot-comment-caret:after {
     border-width: 4px;
     margin-top: -1px;
-    border-left-color: #1AABED;
+    border-left-color: rgb(44,150,207);
 }
 
 #abot-container .abot-comment-by-abot .abot-comment-body-container {
@@ -1545,3 +1546,141 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
+#abot-container a.quick_reply, a.menu_button, button.quick_reply, button.menu_button {
+  display: inline-block;
+  text-decoration: none !important;
+  padding: 4px !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 10px;
+  border: none;
+  margin: 3px auto !important;
+  min-width: 24px;
+  color: rgb(44,150,207);
+  font: normal normal 90% Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 75% !important;
+  margin-right: 5px !important;
+  border: 1px solid rgb(44,150,207);
+  background-color: #fff;
+  cursor: hand !important;
+}
+
+#abot-container button.carousel_quick_reply {
+  padding: 4px !important;
+  border-radius: 10px;
+  border: none;
+  margin: 0px auto !important;
+  color: #fff;
+  background-color: rgb(44,150,207);
+  width: 95% !important;
+  font: normal normal 100% Helvetica Neue,Helvetica,Arial,sans-serif;
+  cursor: hand !important;
+}
+
+/**
+ * (optional) define here the style definitions which should be applied on the slider container
+ * e.g. width including further controls like arrows etc.
+ */
+#abot-container .slider {
+    position: relative;
+    margin: 0 auto 0px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#abot-container .frame {
+    /**
+     * (optional) wrapper width, specifies width of the slider frame.
+     */
+    /*width: 275px;*/
+
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#abot-container ul.slides {
+    display: inline-block;
+    /* debug border: 1px solid blue; */
+    width: 10000px;
+}
+
+#abot-container li.js_slide {
+    position: relative;
+    display: inline-block;
+    
+    /* debug border: 1px solid green; */
+    /**
+     * (optional) if the content inside the slide element has a defined size.
+     */
+    width: 250px;
+}
+
+#abot-container li.js_slide p.body {
+  font-size: 90% !important;
+  word-break: break-word !important;
+  padding-bottom: 8px;
+}
+
+#abot-container .prev, #abot-container .next {
+    position: absolute !important;
+    top: 20% !important;
+    display: block;
+    cursor: hand;
+}
+
+#abot-container .next {
+    right: 0px !important;
+}
+
+#abot-container .prev {
+    left: 0 !important;
+}
+
+#abot-container .next svg, #abot-container .prev svg {
+    width: 25px;
+}
+
+#abot-container .receipt {
+  font-size: 80% !important;
+}
+
+#abot-container hr.receipt-divider {
+  height: 1px;
+  color: #dadee2;
+  background-color: #dadee2;
+  border: none;
+}
+
+#abot-container .receipt ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+}
+
+#abot-container .receipt ul li {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+}
+
+#abot-container .receipt ul li span.key {
+  font-weight: bold;
+  display: block;
+  font-size: 80%;
+  clear: both;
+}
+
+#abot-container .receipt ul li span.value {
+  display: block;
+  font-size: 80%;
+  clear: both;
+}
+
+#abot-container button:focus {outline:0;}
